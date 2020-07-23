@@ -1,0 +1,2 @@
+# Sample way to test endpoints in IntelliJ
+DELETE http://localhost:9090/shoppingList/538996361
