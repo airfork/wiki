@@ -1,12 +1,11 @@
-@file:JsModule("@material-ui/core/styles")
+@file:JsModule("@material-ui/core/Container")
 @file: JsNonModule
 
-import kotlinext.js.JsObject
 import react.*
 
-@JsName("makeStyles")
-external val styles: RClass<StylesProps>
+@JsName("default")
+external val container: RClass<ContainerProps>
 
-external interface StylesProps : RProps {
-    var style: JsObject
+external interface ContainerProps : RProps {
+    var maxWidth: String
 }

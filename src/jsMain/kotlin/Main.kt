@@ -8,7 +8,7 @@ fun main() {
     // Not sure if better way to do this, but this allows you to render different top level components to different routes, basically
     if(document.getElementById("main") != null) {
         render(document.getElementById("main")) {
-            child(App)
+            app()
         }
     }
 
