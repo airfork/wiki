@@ -60,12 +60,6 @@ fun main() {
                     ContentType.Text.Html
                 )
             }
-            get("/test") {
-                call.respondText(
-                    this::class.java.classLoader.getResource("test.html")!!.readText(),
-                    ContentType.Text.Html
-                )
-            }
             static("/") {
                 resources("")
             }
