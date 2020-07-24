@@ -60,14 +60,16 @@ fun main() {
                     ContentType.Text.Html
                 )
             }
-            get("/test") {
-                call.respondText(
-                    this::class.java.classLoader.getResource("test.html")!!.readText(),
-                    ContentType.Text.Html
-                )
-            }
             static("/") {
                 resources("")
+            }
+        }
+        install(StatusPages) {
+            status(HttpStatusCode.NotFound) {
+                call.respondText(
+                    this::class.java.classLoader.getResource("index.html")!!.readText(),
+                    ContentType.Text.Html
+                )
             }
         }
     }.start(wait = true)

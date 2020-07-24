@@ -5,10 +5,17 @@ import react.router.dom.*
 fun RBuilder.app() =
     browserRouter {
        switch {
-           route("/") {
+           route("/", exact = true) {
                div {
                    h1 {
                        +"Kotlin"
+                   }
+               }
+           }
+           route("/test") {
+               div {
+                   h1 {
+                       +"Test"
                    }
                }
            }
