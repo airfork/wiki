@@ -5,7 +5,7 @@ import react.router.dom.*
 fun RBuilder.app() =
     browserRouter {
        switch {
-           route("/", exact = true) {
+           route("/") {
                div {
                    h1 {
                        +"Kotlin"

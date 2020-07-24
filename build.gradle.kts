@@ -86,10 +86,10 @@ kotlin {
                 //React, React DOM + Wrappers (chapter 3)
                 implementation("org.jetbrains:kotlin-react:16.13.0-pre.93-kotlin-1.3.70")
                 implementation("org.jetbrains:kotlin-react-dom:16.13.0-pre.93-kotlin-1.3.70")
-                implementation("org.jetbrains:kotlin-react-router-dom:5.1.2-pre.109-kotlin-1.3.72")
+                implementation("org.jetbrains:kotlin-react-router-dom:4.3.1-pre.94-kotlin-1.3.70")
                 implementation(npm("react", "16.13.0"))
                 implementation(npm("react-dom", "16.13.0"))
-                implementation(npm("react-router-dom", "5.1.2"))
+                implementation(npm("react-router-dom", "4.3.1"))
                 implementation(npm("alloyeditor"))
                 implementation(npm("@material-ui/core"))
             }
