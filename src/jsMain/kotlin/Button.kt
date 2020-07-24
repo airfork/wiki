@@ -1,5 +1,5 @@
 // React button component from material ui
-@file:JsModule("@material-ui/core/button")
+@file:JsModule("@material-ui/core/Button")
 @file:JsNonModule
 
 import react.*
