@@ -21,6 +21,24 @@ val shoppingList = mutableListOf(
     ShoppingListItem("Orange Juice 🍊", 3)
 )
 
+val articleList = mutableListOf(
+    WikiArticle("My First Wiki Post", listOf("Tunji Afolabi-Brown"),
+        "This is my first wiki 'post'. Hopefully it's informative", "Today (No date format)",
+        "Today (No date format)"),
+    WikiArticle("My Second Wiki Post", listOf("Tunji Afolabi-Brown"),
+        "If I told you 2 + 2 equals 5, would you believe me?", "Today (No date format)",
+        "Today (No date format)"),
+    WikiArticle("My Third Wiki Post", listOf("Tunji Afolabi-Brown"),
+        "Let me tell tell you a secret", "Today (No date format)",
+        "Today (No date format)"),
+    WikiArticle("My Fourth Wiki Post", listOf("Tunji Afolabi-Brown"),
+"Don't go to the moon, you'll be corrupted", "Today (No date format)",
+"Today (No date format)"),
+    WikiArticle("My Fifth Wiki Post", listOf("Tunji Afolabi-Brown"),
+"Merlin Hermes, the wandering magician, and his fully automated wishing machine!", "Today (No date format)",
+"Today (No date format)")
+)
+
 fun main() {
     // Create server
     embeddedServer(Netty, 9090) {
@@ -51,6 +69,11 @@ fun main() {
                     val id = call.parameters["id"]?.toInt() ?: error("Invalid delete request")
                     shoppingList.removeIf { it.id == id }
                     call.respond(HttpStatusCode.OK)
+                }
+            }
+            route(WikiArticle.path) {
+                get {
+                    call.respond(Wiki.showcase(articleList))
                 }
             }
             get("/") {
