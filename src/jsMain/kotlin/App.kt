@@ -13,11 +13,7 @@ fun RBuilder.app() =
                }
            }
            route("/test") {
-               div {
-                   h1 {
-                       +"Test"
-                   }
-               }
+               child(TestPage)
            }
        }
     }

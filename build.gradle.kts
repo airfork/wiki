@@ -69,6 +69,11 @@ kotlin {
                 implementation(kotlin("stdlib-js"))
 
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$serializationVersion")
+
+                implementation("org.jetbrains:kotlin-styled:1.0.0-pre.94-kotlin-1.3.70")
+                implementation(npm("styled-components"))
+                implementation(npm("inline-style-prefixer"))
+
                 //todo: bugfix in kx.serialization?
                 implementation(npm("text-encoding"))
                 implementation(npm("abort-controller"))
