@@ -73,7 +73,11 @@ fun main() {
             }
             route(WikiArticle.path) {
                 get {
-                    call.respond(Wiki.showcase(articleList))
+                    call.respond(Wiki.index(articleList))
+                }
+                post {
+                    articleList += call.receive<WikiArticle>()
+                    call.respond(HttpStatusCode.OK)
                 }
             }
             get("/") {
