@@ -8,6 +8,7 @@ import io.ktor.routing.*
 import io.ktor.serialization.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import io.ktor.locations.*
 import org.litote.kmongo.*
 import org.litote.kmongo.async.*
 import org.litote.kmongo.coroutine.*
@@ -39,6 +40,9 @@ val articleList = mutableListOf(
 "Today (No date format)")
 )
 
+@Location("/")
+class Wiki()
+
 fun main() {
     // Create server
     embeddedServer(Netty, 9090) {
@@ -56,6 +60,7 @@ fun main() {
         install(Compression) {
             gzip()
         }
+        install(Locations)
         routing {
             route(ShoppingListItem.path) {
                 get {
@@ -72,13 +77,7 @@ fun main() {
                 }
             }
             route(WikiArticle.path) {
-                get {
-                    call.respond(Wiki.index(articleList))
-                }
-                post {
-                    articleList += call.receive<WikiArticle>()
-                    call.respond(HttpStatusCode.OK)
-                }
+                wiki(articleList)
             }
             get("/") {
                 call.respondText(

@@ -59,6 +59,7 @@ kotlin {
                 implementation(kotlin("stdlib", kotlinVersion)) // or "stdlib-jdk8"
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serializationVersion") // JVM dependency
                 implementation("io.ktor:ktor-websockets:$ktorVersion")
+                implementation("io.ktor:ktor-locations:$ktorVersion")
 
                 implementation("org.litote.kmongo:kmongo-coroutine-serialization:3.12.2")
             }
